@@ -1,0 +1,35 @@
+<!--extends layout
+
+block content
+  h1= title
+
+  ul
+    each book in book_list
+      li
+        a(href=book.url) #{book.title}
+        |  (#{book.author.name})
+
+    else
+      li There are no books.
+
+-->
+
+<%- include('layout-top'); -%>
+<h1><%=title%></h1>
+<ul>
+
+    <% if(book_list.length> 0) { %>
+    <%    book_list.forEach(book=>{ %>
+
+    <li><a href="<%=book.url%>">
+            <%=book.title%> 
+        </a>( <%=book.author.name%> )
+    </li>
+    <%} )%>
+
+    <% } else {%>
+    <p>-- No book to display --</p>
+    <% }%>
+
+</ul>
+<%- include('layout-end'); -%>

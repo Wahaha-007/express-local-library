@@ -1,0 +1,39 @@
+<!-- extends layout
+
+block content
+  h1 #{title}
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='name') Genre:
+      input#name.form-control(type='text', placeholder='Fantasy, Poetry etc.' name='name' value=(undefined===genre ? '' : genre.name))
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+   ul
+    for error in errors
+     li!= error.msg -->
+
+<%- include('layout-top'); -%>
+<h1><%=title%></h1>
+
+<form action="" method="post">
+    <div class="form-group">
+        <%const temp = (locals.genre)? genre.name:""%>
+        <label for="name">Genre:</label>
+        <input type="text" id="name" class="form-control" placeholder="Fantasy, Poetry etc." name="name"
+            value="<%=temp%>">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+
+<%if(locals.errors) {%>
+<ul>
+    <%errors.forEach(error=>{%>
+    <li><%=error.msg%></li>
+    <%})%>
+</ul>
+<%}%>
+
+
+<%- include('layout-end'); -%>
