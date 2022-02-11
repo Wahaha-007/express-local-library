@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
-    "serverstart": "DEBUG=locallibrary:* npm run devstart"
+    "serverstart": "MONGODB_URI='mongodb+srv://netninja:test123456@cluster0.rozut.mongodb.net/local_library?retryWrites=true&w=majority' DEBUG=locallibrary:* npm run devstart"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
